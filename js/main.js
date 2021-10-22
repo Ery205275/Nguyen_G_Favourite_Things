@@ -1,19 +1,9 @@
+//imports statement go to top
+import { getData } from "./components/Datatry.js";
+
 (() => {
     const   theThings = document.querySelector("#thingsSection"),
             theTemplate = document.querySelector("#fav-template").content;
-
-    // set up a Fetch function and get some data
-    function getData() {
-        // retrieve our data object
-        fetch("./includes/functions.php") // go and get the data (fetch boy!)
-            .then(res => res.json()) // good dog! clean the stick (convert the data to a plain object)
-            .then(data => {
-               // console.log(data);
-
-                buildThing(data[0]);
-            })
-            .catch(error => console.error(error));
-    }
 
     function buildThing(info) {
 
@@ -42,5 +32,5 @@
 
     }
 
-    getData();
+    getData(buildThing);
 })();
