@@ -1,0 +1,27 @@
+{
+  "name": "nguyen_g_favourite_things",
+  "version": "1.0.0",
+  "description": "Homework 1 Favourite Things",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ery205275/Nguyen_G_Favourite_Things.git"
+  },
+  "keywords": [
+    "Ajax",
+    "Java",
+    "Sass"
+  ],
+  "author": "GIA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ery205275/Nguyen_G_Favourite_Things/issues"
+  },
+  "homepage": "https://github.com/Ery205275/Nguyen_G_Favourite_Things#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
