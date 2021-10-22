@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Homework 1 Favourite Things",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,6 +23,9 @@
   },
   "homepage": "https://github.com/Ery205275/Nguyen_G_Favourite_Things#readme",
   "devDependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "gulp-imagemin": "^8.0.0",
+    "gulp-sass": "^5.0.0",
+    "sass": "^1.43.3"
   }
 }
