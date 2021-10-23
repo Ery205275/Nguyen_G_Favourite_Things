@@ -4,9 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Three of my favourite things</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+    <section id="bio">
+        <h3 class="introText">These are 3 of my favorite things! Click to see! </h3>
+        <section class="buttons">
+             <button class ="btn" data-key ="Thing1"> Thing 1 </button>
+             <button class ="btn" data-key ="Thing2"> Thing 2 </button>
+             <button class ="btn" data-key ="Thing3"> Thing 3 </button>
+    </section>
+    </section>
+    <section id="thingsSection"></section>
+    <!-- template tags at the bottom-->
+    <!-- template tags don't get rendered - they just hold reusable content-->
+    <template id="fav-template">
+        <section class="things-panel"> 
+            <div class="t_pic"><!-- this is index 0 (first child)-->
+                <img src="" alt="">
+            </div>
+    
+            <h2 class="t_name"></h2><!-- this is index 1 (second child)-->
+            <h3 class="t_reason"></h3><!-- this is index 2 (third child)-->
+            <p class="t_favebreed"><!-- this is index 3 (fourth child)-->
+                
+            </p>
+        </section>
+    </template>
     <script src="js/main.js" type="module" defer></script>
 </body>
 </html>
