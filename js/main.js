@@ -15,6 +15,7 @@ import { getData } from "./components/Datatry.js";
             panel.firstElementChild.dataset.key = thing.id;
 
             thingInfo[0].querySelector('img').src = `images/${person.biopic}`;
+     
             // thingInfo[1].textContent = person.name;
             // thingInfo[2].textContent = person.role;
             // thingInfo[3].textContent = person.nickname;
