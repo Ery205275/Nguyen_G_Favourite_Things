@@ -1,44 +1,28 @@
-//imports statement go to top
 import { getData } from "./components/Datatry.js";
 
 (() => {
-    const   theThings = document.querySelector("#thingsSection"),
-            theTemplate = document.querySelector("#fav-template").content;
+    const   theTeam = document.querySelector("#team-members"),
+            theTemplate = document.querySelector("#bio-template").content;
 
-    function buildThing(info) {
+    function buildTeam(info) {
+        info.forEach(person => {
+            let panel = theTemplate.cloneNode(true),
+                memberInfo = panel.firstElementChild.children;
 
-        //debugger; 
+            // add the custom data attribute value to the section tag inside the template
+            panel.firstElementChild.dataset.key = person.id;
 
-        // grab the keys from the data object (the names)
-        //const things = Object.keys(info);
+            memberInfo[0].querySelector('img').src = `images/${person.biopic}`;
+            // memberInfo[1].textContent = person.name;
+            // memberInfo[2].textContent = person.role;
+            // memberInfo[3].textContent = person.nickname;
 
-        info.forEach(thing => {
-            let panel = theTemplate.cloneNode(true); // make a copy of the template content
-                thingInfo = panel.firstElementChild.children; // get a reference to the template content
-
-            panel.firstElementChild.dataset.key = thing.id;
-
-            thingInfo[0].querySelector("img").src = `images/${thing.biopic}`;
-
-    
-            // thingInfo[1].textContent = thing.name;
-            // thingInfo[2].textContent = thing.favebreed;
-            // thingInfo[3].textContent = thing.reasone;
-
-            theThings.appendChild(panel);
+            // put the virtual panel in the team section in our HTML page
+            theTeam.appendChild(panel);
         })
-
     }
-    function getMoreData(event){
-        if (event.target.closest("section").dataset.key){
-            
-            let key = event.target.closest("section").dataset.key;
-            getData({id: key}, function(data){
-                console.log(data);
-            });
-        }
-    }
-    theThings.addEventListener("click", getMoreData);
+    theTeam.addEventListener("click", getMoreData);
 
-    getData(null, buildThing);
+    // pass the buildTeam function to our data miner as a callback
+    getData(null, buildTeam);
 })()
