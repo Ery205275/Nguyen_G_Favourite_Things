@@ -19,11 +19,11 @@ function getOneThing($conn, $thing) {
      return $result;
 }
 
-function getAllThings($pdo) {
+function getAllThings($conn) {
 $query = "SELECT * FROM data";
 
 // this is the database result 
-$runQuery = $pdo->query($query);
+$runQuery = $conn->query($query);
 
 //store each row of data in an mepty array
 $result = array();
@@ -34,5 +34,5 @@ while($row = $runQuery->fetchAll(PDO::FETCH_ASSOC)){
 }
  return $result;
 }
-// send DB reult back to JS files as JSON object
-echo (json_encode($result));
+// // send DB reult back to JS files as JSON object
+// echo (json_encode($result));
