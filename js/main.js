@@ -1,44 +1,99 @@
 (() => {
-    const   theThings = document.querySelector("#thingsSection"),
-            theTemplate = document.querySelector("#fav-template").content;
+    const   buttons = document.querySelectorAll(".btn"),
+            tName = document.querySelector(".t-name"),
+            tType = document.querySelector(".t-favebreed"),
+            tReason = document.querySelector(".t-reason"),
+     
+    // Favourite = {};
+        theThings = document.querySelector("#favorite"),
+            // theTemplate = document.querySelector("#fav-template").content
 
-    // set up a Fetch function and get some data
-    function getData() {
+  Favourite = {
+    Thing1: {
+        name:"Cat",
+        favebreed:"Siamese",
+        reason:"They are very small and cute",
+        url:"Thing1.jpeg"
+    },
+    Thing2: {
+        name:"Dog",
+        favebreed:"Shiba",
+        reason:"They are very caring, cuddly and loving",
+        url:"Thing2.jpeg"
+    },
+    Thing3: {
+        name:"Money",
+        favebreed:"Any currency",
+        reason:"Could buy anything and solve 99% of all problems",
+        url:"Thing3.jpeg"
+    }
+};
+
+
+
+    
+function getData() {
         // retrieve our data object
         fetch("./data.json") // go and get the data (fetch boy!)
             .then(res => res.json()) // good dog! clean the stick (convert the data to a plain object)
             .then(data => {
                 console.log(data);
+                Favourite = data;
 
-                buildThing(data);
+               
             })
         .catch(error => console.error(error));
     }
-
-    function buildThing(info) {
-
+    getData();
+    // function showData(){
+    //     // let key = this.dataset.key;
+    //     // let headline = document.querySelector("section");
+    //     let picture = document.querySelector(".t-pic");
+    
+        
+    //     picture.querySelector("img").src = `images/${Favourite[this.dataset.key].url}`;
+    // // update the text
+    //     tName.textContent =  Favourite[this.dataset.key].name;
+    //     tType.textContent =  Favourite[this.dataset.key].favebreed;
+    //     tReason.textContent =  Favourite[this.dataset.key].reason;
+    //     // console.log(showData);
+    // }
+    
+function buildThing(Favourite) {
+         console.log("clicked");
         // grab the keys from the data object (the names)
-        const things = Object.keys(info);
-
-        things.forEach(thing => {
-            let panel = theTemplate.cloneNode(true); // make a copy of the template content
-            let containers = panel.firstElementChild.children; // get a reference to the template content
+    
+        let key = this.dataset.key;   
+        let panel = document.querySelector(".fav-bio"); 
+            if (panel) {
+                panel.classList.remove("hidden");
+            let containers = panel.children; 
+            
 
             // cycle through the child elements inside the <section> tag in the <template> tag
             // and update their attributes 
             
             // add the image
-            containers[0].querySelector("img").src = `images/${info[thing].biopic}`;
+            containers[0].querySelector("img").src = `images/${Favourite[key].url}`;
 
             // update the text
-            containers[1].textContent = info[thing].name;
-            containers[2].textContent = info[thing].favebreed;
-            containers[3].textContent = info[thing].reason;
-
+            containers[1].textContent = Favourite[key].name;
+            containers[2].textContent = Favourite[key].favebreed;
+            containers[3].textContent = Favourite[key].reason;
+            
             theThings.appendChild(panel);
-        });
-
+            }
+            else {
+                panel.classList.add("hidden");
+            }
+       
     }
+    buttons.forEach(button => (button.addEventListener("click", buildThing)));
 
-    getData();
-})();
+    // showData();
+ 
+    buildThing();
+    let fadeIn = document.querySelector(".bio-panel");
+    document.querySelector(".button").onclick = function() {
+        fadeIn.classList.add("fade");}
+})()

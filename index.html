@@ -7,11 +7,42 @@
     <title>Three of my favourite things</title>
 </head>
 <body>
-    <h1> These are my three favourite things</h1>
-    <button data-key ="Thing1"> Thing 1 </button>
-    <button data-key ="Thing2"> Thing 2 </button>
-    <button data-key ="Thing3"> Thing 3 </button>
+    <section class="bio">
+        <h3 class="introText">These are 3 of my favorite things! Click to see! </h3>
+        <section class="buttons">
+            <h1></h1>
+             <button class ="btn" data-key ="Thing1"> Thing 1 </button>
+             <button class ="btn" data-key ="Thing2"> Thing 2 </button>
+             <button class ="btn" data-key ="Thing3"> Thing 3 </button>
+    </section>
+
+   <section id ="favorite">
+    <section class="fav-bio">
+        <div class="fav-pic">
+            <img src="" alt="">
+        </div>
+
+        <h2 class="fav-name"></h2>
+        <h3 class="fav-favebreed"></h3>
+        <p class="fav-reason">
+            
+        </p>
+    </section>
+   </section>
+   
+     <template id="fav-template">
+        <section class="t-bio">
+            <div class="t-pic">
+                <img src="" alt="">
+            </div>
     
+            <h2 class="t-name"></h2>
+            <h3 class="t-favebreed"></h3>
+            <p class="t-reason">
+                
+            </p>
+        </section>
+    </template> 
         <script src="js/main.js" type="module" defer></script>
 </body>
 </html>

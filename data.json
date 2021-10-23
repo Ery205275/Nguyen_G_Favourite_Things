@@ -3,19 +3,19 @@
         "name":"Cat",
         "favebreed":"Siamese",
         "reason":"They are very small and cute",
-        "biopic":"cat.jpeg"
+        "url":"Thing1.jpeg"
     },
     "Thing 2": {
         "name":"Dog",
         "favebreed":"Shiba",
         "reason":"They are very caring, cuddly and loving",
-        "biopic":"dog.jpeg"
+        "url":"Thing2.jpeg"
     },
     "Thing 3": {
         "name":"Money",
         "favebreed":"Any currency",
         "reason":"Could buy anything and solve 99% of all problems",
-        "biopic":"money.jpeg"
+        "url":"Thing3.jpeg"
     }
 
 
