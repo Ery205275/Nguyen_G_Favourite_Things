@@ -20,6 +20,8 @@ function getData(params, cb) {
         // do anything else here that we want with our data
         // call a function to generate our dynamic content
         cb(data[0]);
+        console.log(data);
+        
     })
     .catch(error => console.error(error)); // catch and report any errors
 }

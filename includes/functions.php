@@ -1,38 +1,23 @@
-<?php
-
-// store the SQL query in a variable
-$result = array();
-
-function getOneThing($conn, $thing) {
-    $query = "SELECT * FROM data WHERE id='".$thing."'";
-    
-    // this is the database result 
-    $runQuery = $conn->query($query);
-    
-    //store each row of data in an mepty array
+<<?php
+    // store the processed results in a variable
     $result = array();
-    
-    // process DB result and make something we can use with AJAX
-    while($row = $runQuery->fetchAll(PDO::FETCH_ASSOC)){
-        $result[] = $row;
+
+    // if a user passes an ID via a query string (?id=1)
+    // then we should retrieve the row of data that matches and pass it back to the app
+    function getnewData($conn, $prof) {
+        if (is_null($prof)) {
+            $query = "SELECT * FROM profs";
+        } else {
+            $query = "SELECT * FROM profs WHERE id='".$prof."'";
+        }
+
+        // this is the database result -> the raw data that SQL gives us
+        $runQuery = $conn->query($query);
+
+        // process our DB result and make something we can use with AJAX
+        while($row = $runQuery->fetchAll(PDO::FETCH_ASSOC)) {
+         $result[] = $row;
+        }
+
+        return $result;
     }
-     return $result;
-}
-
-function getAllThings($conn) {
-$query = "SELECT * FROM data";
-
-// this is the database result 
-$runQuery = $conn->query($query);
-
-//store each row of data in an mepty array
-$result = array();
-
-// process DB result and make something we can use with AJAX
-while($row = $runQuery->fetchAll(PDO::FETCH_ASSOC)){
-    $result[] = $row;
-}
- return $result;
-}
-// // send DB reult back to JS files as JSON object
-// echo (json_encode($result));
