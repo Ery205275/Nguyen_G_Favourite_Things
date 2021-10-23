@@ -23,9 +23,9 @@ import { getData } from "./components/Datatry.js";
             thingInfo[0].querySelector("img").src = `images/${thing.biopic}`;
 
     
-            thingInfo[1].textContent = thing.name;
-            thingInfo[2].textContent = thing.favebreed;
-            thingInfo[3].textContent = thing.reasone;
+            // thingInfo[1].textContent = thing.name;
+            // thingInfo[2].textContent = thing.favebreed;
+            // thingInfo[3].textContent = thing.reasone;
 
             theThings.appendChild(panel);
         });

@@ -1,6 +1,6 @@
 <?php 
     $db_dsn = array( 
-        'host' => 'localhost', //this will change to domain when go live
+        'host' => 'localhost', // this will change when you go live
         'dbname' => 'newData', // update this with your database name
         'charset' => 'utf8'
     );
