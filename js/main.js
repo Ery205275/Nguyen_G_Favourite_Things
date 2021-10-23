@@ -16,7 +16,7 @@ import { getData } from "./components/Datatry.js";
             let panel = theTemplate.cloneNode(true); // make a copy of the template content
                 thingInfo = panel.firstElementChild.children; // get a reference to the template content
 
-               
+            panel.firstElementChild.dataset.key = thing.id;
 
             thingInfo[0].querySelector("img").src = `images/${thing.biopic}`;
 
@@ -26,9 +26,19 @@ import { getData } from "./components/Datatry.js";
             // thingInfo[3].textContent = thing.reasone;
 
             theThings.appendChild(panel);
-        });
+        })
 
     }
+    function getMoreData(event){
+        if (event.target.closest("section").dataset.key){
+            
+            let key = event.target.closest("section").dataset.key;
+            getData({id: key}, function(data){
+                console.log(data);
+            });
+        }
+    }
+    theThings.addEventListener("click", getMoreData);
 
     getData(null, buildThing);
-})();
+})()

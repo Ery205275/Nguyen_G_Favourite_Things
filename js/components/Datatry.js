@@ -21,7 +21,7 @@ function getData(params, cb) {
         // call a function to generate our dynamic content
         cb(data[0]);
     })
-    .catch (error => console.error(error)); // catch and report any errors
+    .catch(error => console.error(error)); // catch and report any errors
 }
 
 export { getData }
