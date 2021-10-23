@@ -1,31 +1,31 @@
 (() => {
     const   buttons = document.querySelectorAll(".btn"),
-            tName = document.querySelector(".t-name"),
-            tType = document.querySelector(".t-favebreed"),
-            tReason = document.querySelector(".t-reason"),
+            // tName = document.querySelector(".t-name"),
+            // tType = document.querySelector(".t-favebreed"),
+            // tReason = document.querySelector(".t-reason"),
      
     // Favourite = {};
-        theThings = document.querySelector("#favorite"),
+        theThings = document.querySelector("#favorite");
             // theTemplate = document.querySelector("#fav-template").content
 
-  Favourite = {
+  let Favourite = {
     Thing1: {
         name:"Cat",
         favebreed:"Siamese",
         reason:"They are very small and cute",
-        url:"Thing1.jpeg"
+        pic:"Thing1.jpeg"
     },
     Thing2: {
         name:"Dog",
         favebreed:"Shiba",
         reason:"They are very caring, cuddly and loving",
-        url:"Thing2.jpeg"
+        pic:"Thing2.jpeg"
     },
     Thing3: {
         name:"Money",
         favebreed:"Any currency",
         reason:"Could buy anything and solve 99% of all problems",
-        url:"Thing3.jpeg"
+        pic:"Thing3.jpeg"
     }
 };
 
@@ -59,11 +59,11 @@ function getData() {
     //     // console.log(showData);
     // }
     
-function buildThing(Favourite) {
+function buildThing() {
          console.log("clicked");
         // grab the keys from the data object (the names)
     
-        let key = this.dataset.key;   
+        // let key = theThings.dataset.key;   
         let panel = document.querySelector(".fav-bio"); 
             if (panel) {
                 panel.classList.remove("hidden");
@@ -74,14 +74,13 @@ function buildThing(Favourite) {
             // and update their attributes 
             
             // add the image
-            containers[0].querySelector("img").src = `images/${Favourite[key].url}`;
+            containers[0].querySelector("img").src = `images/${Favourite[theThings.dataset.key].pic}`;
 
             // update the text
-            containers[1].textContent = Favourite[key].name;
-            containers[2].textContent = Favourite[key].favebreed;
-            containers[3].textContent = Favourite[key].reason;
+            containers[1].textContent = Favourite[theThings.dataset.key].name;
+            containers[2].textContent = Favourite[theThings.dataset.key].favebreed;
+            containers[3].textContent = Favourite[theThings.dataset.key].reason;
             
-            theThings.appendChild(panel);
             }
             else {
                 panel.classList.add("hidden");
@@ -93,7 +92,7 @@ function buildThing(Favourite) {
     // showData();
  
     buildThing();
-    let fadeIn = document.querySelector(".bio-panel");
+    let fadeIn = document.querySelector(".fav-bio");
     document.querySelector(".button").onclick = function() {
         fadeIn.classList.add("fade");}
 })()
